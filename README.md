@@ -1,5 +1,40 @@
 # NGS
 
+## Repository Structure
+```
+.
+├── 1 - alignment
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+├── 2 - aligncleaning
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+├── 3 - calling
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+├── 4 - filtering
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+├── 5 - annotation
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+├── 6 - frequency
+│   ├── Data
+│   │   ├── input
+│   │   └── output
+│   └── src
+```
+
 ## Pipeline
 1) Prefetching `fastq` Dataset
 
