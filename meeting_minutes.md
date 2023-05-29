@@ -1,4 +1,4 @@
-## May 29, 2023 Dry Lab Meeting Minutes
+## May 29, 2023
 Problems:
 - IndelRealigner not available in GATK > v3.6 -> look into alternatives (@olivialopardo)
 - Calling Mutect2 on BAM files -> get GATK working then call Mutect2 (@bsegall02 @jennifertramsu)
