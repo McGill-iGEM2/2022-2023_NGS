@@ -1,3 +1,6 @@
+##SOURCE CODE: https://github.com/bioinform/somaticseq/blob/seqc2/utilities/dockered_pipelines/alignments/bwa_mem_pe.sh
+
+
 #!/bin/bash
 # Use getopt instead of getopts for long options
 
