@@ -12,7 +12,7 @@ Problems/Tasks:
 - Read the above paper depth to see if we're missing any steps or could be incorporating anything to improve results (@pilar, but everybody should read it)
 - Try other parts of GATK to see if it's working/we can use it for other things. Ex. marking duplicates, which doesn't require reference file (@bsegall02)
 - Continue trying to solve contigs issue for Mutect2. Ideas are renaming them in the fasta file, convertinig BAM to SAM, gzipping, and editing that, or looking for more reference files that have matching names (@besgall02, @jennifertramsu)
-- Look through the github of Albert's paper, see if we can steal* parts of  their scripts to run the whole pipeline or parts.
+- Look through the github of Albert's paper, see if we can steal* their scripts to run the whole pipeline or individual parts (@pilar, @bsegall02)
 
 ## Thursday, June 1, 2023
 Updates:
