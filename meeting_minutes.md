@@ -9,6 +9,7 @@ Tasks:
     2) (Variant Calling - Tumour-Normal Paired Mode) Run `makeSomaticScripts.py` to create scripts for MuText2, SomaticSniper, VarDict, etc. Use the flag `--run-workflow` to execute the scripts in parallel once the scripts are created
         - Input: bam (tumour, normal)
         - Output: ??
+    - We will probably want to run MuTect2 individually. Will also need to find argument to pass to MuTect2 that calculates allele frequency.
 
 ## Monday, June 5, 2023
 Updates:
