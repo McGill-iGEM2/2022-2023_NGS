@@ -10,7 +10,7 @@ Tasks:
         - Input: bam (tumour, normal)
         - Output: ??
     - We will probably want to run MuTect2 individually. Will also need to find argument to pass to MuTect2 that calculates allele frequency.
-- Compute Canada -> storing data on Compute Canada and finding out how to access the data (@bsegall02)
+- Compute Canada -> storing data on Compute Canada and finding out how to access the data locally (@bsegall02)
 
 ## Monday, June 5, 2023
 Updates:
