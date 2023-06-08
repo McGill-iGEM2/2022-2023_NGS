@@ -3,13 +3,14 @@ Tasks:
 - Running the [pipeline](https://github.com/bioinform/somaticseq)
     - Includes a manual on how to download and use SomaticSeq --> get this working
 - From the manual
-    1) (Alignment and Cleaning) Run `makeAlignmentScripts.py` with the necessary flags to trim, align, and mark duplicates -> @pilar
+    1) (Alignment and Cleaning) Run `makeAlignmentScripts.py` with the necessary flags to trim, align, and mark duplicates (@pilar)
         - Input: fastq (tumour, normal), fasta (reference)
         - Output: merged fastq file, trimmed bam file
-    2) (Variant Calling - Tumour-Normal Paired Mode) Run `makeSomaticScripts.py` to create scripts for MuText2, SomaticSniper, VarDict, etc. Use the flag `--run-workflow` to execute the scripts in parallel once the scripts are created - @jennifertramsu @bsegall02
+    2) (Variant Calling - Tumour-Normal Paired Mode) Run `makeSomaticScripts.py` to create scripts for MuText2, SomaticSniper, VarDict, etc. Use the flag `--run-workflow` to execute the scripts in parallel once the scripts are created (@jennifertramsu @bsegall02)
         - Input: bam (tumour, normal)
         - Output: ??
     - We will probably want to run MuTect2 individually. Will also need to find argument to pass to MuTect2 that calculates allele frequency.
+- Compute Canada -> storing data on Compute Canada and finding out how to access the data (@bsegall02)
 
 ## Monday, June 5, 2023
 Updates:
