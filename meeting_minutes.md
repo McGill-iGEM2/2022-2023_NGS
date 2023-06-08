@@ -1,3 +1,8 @@
+## Thursday, June 8, 2023
+Ongoing:
+- Running the [pipeline](https://github.com/bioinform/somaticseq)
+    - Includes a manual on how to download and use SomaticSeq --> get this working
+
 ## Monday, June 5, 2023
 Updates:
 - Pilar found that marked dupliciates are useful but depends on the data. More useful in case there are issues with the data itself. 
