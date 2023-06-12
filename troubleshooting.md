@@ -1,4 +1,4 @@
-# Errors encountered and their solution
+# Errors encountered and their solutions
 ## BWA Mem
 
 ## GATK
