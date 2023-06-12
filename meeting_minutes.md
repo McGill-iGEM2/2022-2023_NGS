@@ -1,3 +1,21 @@
+## Monday, June 12, 2023
+Updates:
+- Pilar working on the BWA part of the pipeline
+- Elya has alignment working starting with a FASTQ file 
+    - GCh38 as reference genome from NCBI, results in a SAM equivalent to the downloaded file from the original SRA data site
+    - Still does not have the % of aligned reads, further steps to figure out how to get that
+    - Can copy paste read in the UCSC Genome Browser to benchmark the read and see how it maps
+- Looks like we can't store in compute canada and run locally, but shouldn't be an issue to run job on there. Jasmin's students have rarely had to wait for resources to open up.
+- 
+
+Tasks:
+- Will create a new markdown file to log intructions when trying to set up and use the programs (@bsegall02)
+- Continue work for Mutect2, can use albert's paper as a reference for commands (@pilar, @bsegall02)
+- % of aligned reads, start logging process on github (@elya)
+- Everybody apply for compute canada account (@everybody)
+- Get wet lab to make a list of tools that would be useful to have for us to start working on
+
+
 ## Thursday, June 8, 2023
 Tasks:
 - Running the [pipeline](https://github.com/bioinform/somaticseq)
