@@ -82,3 +82,9 @@ To determine the frequency of a variant, we can convert the filtered VCF file to
   - Output: Variant frequency (hopefully)
 
 Find # of reads.
+
+
+## Set-up Instructions
+### BWA-MEM
+
+### MuTect2
