@@ -19,7 +19,7 @@ gRNA how to do it:
 - Tools for detecting NMD (Nonsense mediated decay)
     - Found a tool, [NMD classifier](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0174798). Requires a transcript so we would want to feed it every transcript that ref-seq predicts
 - Targetting expression level - would be good to target maybe top 50% because it tends to be logorithmic
-    - Need to start working on this, shouldn't be too bad. Looking through data Jasmin send and writing a script to get the fraction of samaples where the gene is expressed
+    - Need to start working on this, shouldn't be too bad. Looking through MAF files Jasmin send and writing a script to get the fraction of samaples where the gene is expressed
  
 ## Monday, June 12, 2023
 Updates:
