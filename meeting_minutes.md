@@ -1,3 +1,26 @@
+## Thursday, June 15, 2023
+gRNA things to consider:
+- Cas-9 DNA melting temperature
+- mRNA structure
+- expression level
+- Whether the mutation kills the gene expression
+- Frequency of those with mutation vs unmutated (and don't want it to bind to unmutated)
+- Off targets are rarely an issue, usually a problem like paralogs since often things similar at the protein level would havae likely diverged at the DNA level
+    - Can also check quickly by just blasting or using BWA, bowtie to search for similarities to the chosen gRNA
+- More data on TCGA compared to SRA, much better for determing what genes to target vs SRA just to see the whole pipeline working from the start
+    - [MAF files](https://portal.gdc.cancer.gov/repository?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.access%22%2C%22value%22%3A%5B%22open%22%5D%7D%7D%2C%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22files.data_category%22%2C%22value%22%3A%5B%22simple%20nucleotide%20variation%22%5D%7D%7D%5D%7D)
+    -  Should also look to figure out what driver mutations are  known, try to get a fairly comprehensive list of known ones since that would influence the decision of what gRNA to use, whether the target is a driver mutation
+        - [Software for finding driver mutations](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00830-0)
+- Some  of the factors are binary, but with those that are not, it's hard to know what weight to give to each of them.. May just have to guess if there isn't enough time to test a bunch of gRNAs in the lab
+
+gRNA how to do it:
+- Some packages for cas-9 are based on melting temperature, which should still work for our purposes
+- folding, can use RNA fold, mostly 2D folding though: usually pretty good though
+- Tools for detecting NMD (Nonsense mediated decay)
+    - Found a tool, [NMD classifier](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0174798). Requires a transcript so we would want to feed it every transcript that ref-seq predicts
+- Targetting expression level - would be good to target maybe top 50% because it tends to be logorithmic
+    - Need to start working on this, shouldn't be too bad. Looking through data Jasmmin send and writing a script to get the fraction of samaples where the gene is expressed
+ 
 ## Monday, June 12, 2023
 Updates:
 - Pilar working on the BWA part of the pipeline
