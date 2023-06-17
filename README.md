@@ -16,7 +16,7 @@
     └── 4-frequency
   ```
 
-## Pipeline
+## Pipeline Overview
 1) Prefetching `fastq` Dataset
 
   - Program: SRAtoolkit
@@ -88,3 +88,92 @@ Find # of reads.
 ### BWA-MEM
 
 ### MuTect2
+
+## Detailed Pipeline
+1) [Genome Alignment](https://hbctraining.github.io/variant_analysis/lessons/06_alignment_file_processing.html)
+  
+1a) Indexing the reference genome
+
+<li>Program: bwa index</li>
+<li>Input: fastq - reference genome</li>
+<li>Output: index files</li>
+  
+    bwa index <<reference.gz>>
+    samtools faidx <<reference.gz>>
+  
+1b) Aligning the reads to the reference genome
+
+<li>Program: bwa mem</li>
+<li>Input: fastq - reference genome, normal or tumour sample</li>
+<li>Output: SAM file</li>
+
+    bwa mem <<reference.gz>> <<fastq.gz>> > <<output.sam>>
+
+2) File Conversions and Cleaning
+2a) SAM to BAM Conversion
+
+<li>Program: samtools view</li>
+<li>Input: SAM file</li>
+<li>Output: BAM file</li>
+
+    samtools view -bS <<input.sam>> > <<output.bam>>
+
+The output of `bwa` is a SAM file and it is human-readable. However, it is large, so we compress it to a binary version (BAM) to save space.
+
+2b) Query-Sorting
+
+<li>Program: picard SortSam</li>
+<li>Input: BAM file</li>
+<li>Output: BAM file, query-sorted</li>
+
+    picard SortSam I=<<input.bam>> O=<<output.bam>> SO=queryname
+
+BAM files are initially ordered by the order of the reads in the FASTQ file. This is not the same as the order of the reads in the reference genome. We sort the BAM file by the reference genome. This is known as query sorting and makes it easier to find duplicates.
+
+2c) Mark and remove duplicates
+
+<li>Program: picard MarkDuplicates</li>
+<li>Input: BAM file, query-sorted</li>
+<li>Output: BAM file, duplicates removed</li>
+
+    picard MarkDuplicates I=<<input.bam>> O=<<output.bam>> M=<<output_metrics.txt>>
+
+Duplicates are reads that are identical to each other. These are often caused by PCR amplification. We mark and remove duplicates to avoid double-counting reads.
+
+2d) Coordinate Sorting
+
+<li>Program: picard SortSam</li>
+<li>Input: BAM file, duplicates marked</li>
+<li>Output: BAM file, sorted by coordinate</li>
+
+    picard SortSam I=<<input.bam>> O=<<output.bam>> SO=coordinate
+
+Most downstream packages require the BAM files to be coordinate-sorted, so we re-sort the files now that we have removed the duplicates.
+
+2e) Indexing
+
+<li>Program: samtools index</li>
+<li>Input: BAM file, sorted by coordinate</li>
+<li>Output: BAM index file</li>
+  
+      samtools index <<input.bam>>
+
+Indices in alignment files help direct downstream packages to the regions of interest. We create an index file for each alignment file. This index (`.bai`) file is often called alongside the BAM file.
+
+3) Variant Calling
+
+3a) Creating a sequence dictionary
+
+<li>Program: picard CreateSequenceDictionary</li>
+<li>Input: FASTA file</li>
+<li>Output: sequence dictionary</li>
+
+    picard CreateSequenceDictionary R=<<reference.fasta>> O=<<reference.dict>>
+
+3b) Variant Calling
+
+<li>Program: GATK Mutect2</li>
+<li>Input: sequence dictionary (reference), BAM file (normal, tumour)</li>
+<li>Output: VCF file</li>
+
+    gatk Mutect2 -R <<reference.fasta>> -I <<normal.bam>> -I <<tumour.bam>> -O <<output.vcf>>
