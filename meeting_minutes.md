@@ -1,3 +1,9 @@
+## Monday, June 19, 2023
+Assignments:
+- Finding % of aligned reads (@elya)
+- Getting raw fastq, aligning to reference genome and bringing them through preprocessing/mutect (@jennifertramsu, @bsegall02)
+- Script to get expression level of different genes (@albert)
+
 ## Thursday, June 15, 2023
 gRNA things to consider:
 - Cas-9 DNA melting temperature
