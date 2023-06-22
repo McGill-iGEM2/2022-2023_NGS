@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts "r:n:t:" options; do
+while getopts "r:n:t:" option; do
     case $option in
         r) ref=$OPTARG;;
         n) normal=$OPTARG;;
