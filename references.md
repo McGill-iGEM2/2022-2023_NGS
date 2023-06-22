@@ -15,6 +15,9 @@ RNA Structure Prediction Tool (mfold)
 
 GATK Workshop GDrive
   https://drive.google.com/drive/folders/1y7q0gJ-ohNDhKG85UTRTwW1Jkq4HJ5M3
+
+NGS Pipeline Tutorials
+  https://hbctraining.github.io/variant_analysis/lessons/06_alignment_file_processing.html
   
 ## Readings
 A software tool to help prioritize potential driver mutations (since these are more likely to be specific and universal to the tumor).
