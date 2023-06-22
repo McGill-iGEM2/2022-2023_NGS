@@ -6,6 +6,19 @@ Tumour: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SR
 
 Normal: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SRR12331408&display=download
 
+## Software
+Fasterq-dump
+  https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump/a58c2a07022dc7b0b043529ee01879b5381fe862
+
+RNA Structure Prediction Tool (mfold)
+  http://www.unafold.org/mfold/software/download-mfold.php
+
+GATK Workshop GDrive
+  https://drive.google.com/drive/folders/1y7q0gJ-ohNDhKG85UTRTwW1Jkq4HJ5M3
+
+NGS Pipeline Tutorials
+  https://hbctraining.github.io/variant_analysis/lessons/06_alignment_file_processing.html
+  
 ## Readings
 A software tool to help prioritize potential driver mutations (since these are more likely to be specific and universal to the tumor).
   https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00830-0
