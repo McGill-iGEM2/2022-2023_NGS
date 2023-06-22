@@ -6,6 +6,7 @@ Tumour: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SR
 
 Normal: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SRR12331408&display=download
 
+dbSNP (Mutect 2): https://ftp.ncbi.nlm.nih.gov/snp/latest_release/VCF/
 ## Software
 Fasterq-dump
   https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump/a58c2a07022dc7b0b043529ee01879b5381fe862
