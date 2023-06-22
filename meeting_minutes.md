@@ -2,10 +2,10 @@
 Questions:
 - Optical duplicates vs amplification duplicates
     - Optical duplicates not marked by `picard` because of RG error, regular duplicates are being detected and removed
-    - Optical probably not significant, they're due to instrument error. Not sure why they aren't removed normally
-- Two files produced by `fasterq-dump` -> paired-end reads, can indicate in `bwa mem` that we are inputting paired-end reads.
+    - Optical are due to instrument error. Not sure why they aren't removed normally, they're probably not significant
+- Two files produced by `fasterq-dump` -> paired-end reads, can indicate in `bwa mem` that we are inputting paired-end reads. Can ignore technical reads
     - May be aligned or "interleaved," will have to check the first couple lines of the fastq files to see if the reads match
-    - In cses of a third file, will have to be aligned separately on its own.
+    - In cases of a third file, will have to be aligned separately on its own.
     - ![Image instructions for bwa](images/bwa_paired_ends.png)
 - Why are we finding % of aligned reads?
     - Sanity check, making sure the data is good and we can proceed to next steps
@@ -14,10 +14,11 @@ Questions:
     - [Listed here](https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups), but the naming is probably arbitrary and can work with whatever we call it.
     - Can add either with [picard AddOrReplaceReadGroups](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-) or during the alignment with bwa ![Image for bwa flag](images/bwa_RG_flag.png).
   
-Things to consider for future steps:
+Things to consider for future (and current) steps:
 - Does our variant calling include masking of the germline variants?
 - Make sure to add a step comparing to dbSNP to check for common mutations
 - If normal data isn't great, can run tumor only and reference against common germline variants
+- Indel realignment probably necessary for quality control still
 
 ## Monday, June 19, 2023
 Assignments:
