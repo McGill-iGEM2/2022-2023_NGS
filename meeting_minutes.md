@@ -12,7 +12,7 @@ Questions:
     - Good % is context-dependent - when aligning to genome, ~85% is enough. Otherwise, would have to figure out what went wrong with collection, or something else
  - What info do we need for read groups?
     - [Listed here](https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups), but the naming is probably arbitrary and can work with whatever we call it.
-    - Can add either with [picard AddOrReplaceReadGroups](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-) or during the alignment with bwa ![Image for bwa flag](images/bwa_RG_flag).
+    - Can add either with [picard AddOrReplaceReadGroups](https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard-) or during the alignment with bwa ![Image for bwa flag](images/bwa_RG_flag.png).
   
 Things to consider for future steps:
 - Does our variant calling include masking of the germline variants?
