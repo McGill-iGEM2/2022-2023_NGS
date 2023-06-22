@@ -1,3 +1,9 @@
+## Thursday, June 22, 2023
+Updates:
+- Optical duplicates vs amplification duplicates
+    - Optical duplicates not marked by `picard` because of RG error, regular duplicates are being detected and removed
+- Two files produced by `fasterq-dump` -> paired-end reads, can indicate in `bwa mem` that we are inputting paired-end reads
+
 ## Monday, June 19, 2023
 Assignments:
 - Finding % of aligned reads (@elya)
