@@ -18,14 +18,14 @@ while getopts "r:pn:t:" option; do
             n_file_path=$(dirname $1)
             echo -e "\nAligning normal sample to reference genome...\n"
 
-            if [ -z $2 ] # only one file
+            if [ -z $2 ] # only one file, paired ends concatenated
             then
                 if $PAIRED ; then
                     bwa mem -p $ref $1 > $n_file_path/n_aligned.sam
                 else
                     bwa mem $ref $1 > $n_file_path/n_aligned.sam
                 fi
-            else
+            else # two files
                 bwa mem $ref $1 $2 > $n_file_path/n_aligned.sam
             fi
             ;;
