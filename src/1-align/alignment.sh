@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts "r:p:n:t:" option; do
+while getopts "r:pn:t:" option; do
     case $option in
         r) ref=$OPTARG
             if [ ! -f $ref.bwt ]; then
@@ -18,8 +18,9 @@ while getopts "r:p:n:t:" option; do
             n_file_path=$(dirname $1)
             echo -e "\nAligning normal sample to reference genome...\n"
 
-            if [ -z $2 ]; then
-                if [ $PAIRED ]; then
+            if [ -z $2 ] # only one file
+            then
+                if $PAIRED ; then
                     bwa mem -p $ref $1 > $n_file_path/n_aligned.sam
                 else
                     bwa mem $ref $1 > $n_file_path/n_aligned.sam
