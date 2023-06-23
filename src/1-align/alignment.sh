@@ -1,24 +1,55 @@
 #!/bin/bash
 
-while getopts "r:n:t:" option; do
+while getopts "r:p:n:t:" option; do
     case $option in
         r) ref=$OPTARG
-            if [ ! -f $ref.fai ]; then
+            if [ ! -f $ref.bwt ]; then
                 echo -e "Indexing reference genome...\n"
                 bwa index $ref
+                samtools faidx $ref
             fi
             ;;
-        n) normal=$OPTARG
-            n_file_path=$(dirname $normal)
-            echo -e "\nAligning normal sample to reference genome...\n"
-            bwa mem $ref $normal > $n_file_path/n_aligned.sam
+        p)  PAIRED=true
             ;;
-        t) tumour=$OPTARG
-            t_file_path=$(dirname $tumour)
+        n)  set -f
+            IFS=' '
+            shift $(($OPTIND-2))
+
+            n_file_path=$(dirname $1)
+            echo -e "\nAligning normal sample to reference genome...\n"
+
+            if [ -z $2 ]; then
+                if [ $PAIRED ]; then
+                    bwa mem -p $ref $1 > $n_file_path/n_aligned.sam
+                else
+                    bwa mem $ref $1 > $n_file_path/n_aligned.sam
+                fi
+            else
+                bwa mem $ref $1 $2 > $n_file_path/n_aligned.sam
+            fi
+            ;;
+        t)  set -f
+            IFS=' '
+            shift $(($OPTIND-2))
+
+            t_file_path=$(dirname $1)
             echo -e "\nAligning tumour sample to reference genome...\n"
-            bwa mem $ref $tumour > $t_file_path/t_aligned.sam
+
+            if [ -z $2 ]; then
+                if [ $PAIRED ]; then
+                    bwa mem -p $ref $1 > $t_file_path/t_aligned.sam
+                else
+                    bwa mem $ref $1 > $t_file_path/t_aligned.sam
+                fi
+            else
+                bwa mem $ref $1 $2 > $t_file_path/t_aligned.sam
+            fi
             ;;
     esac
 done
 
 echo "Done!"
+
+# TODO
+# picard addorremovereadgroups
+# testing mutect2

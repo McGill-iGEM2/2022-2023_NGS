@@ -118,7 +118,15 @@ Find # of reads.
 <li>Input: fastq - reference genome, normal or tumour sample</li>
 <li>Output: SAM file</li>
 
-    bwa mem <<reference.gz>> <<fastq.gz>> > <<output.sam>>
+Something to keep in mind is whether your reads are paired-end or single-end. Paired-end data is when you have two reads for each fragment of DNA. One read is the forward read and the other is the reverse read (reverse complement). Single-end data is when you have one read for each fragment of DNA.
+
+If you have paired-end data, you will need to align both the forward and reverse reads to the reference genome. `bwa mem` will automatically align the forward and reverse reads together. If the forward and reverse reads are in separate files, you will need to specify both files in the command. 
+
+    bwa mem reference.[gz|fasta] paired_1.[fastq.gz|fastq] paired_2.[fastq.gz|fastq] > aligned_pairs.sam
+
+If the forward and reverse reads are in the same file, you will only need to specify the file once and use the `-p` flag to indicate that the reads are paired-end.
+
+    bwa mem -p reference.[gz|fasta] paired.[fastq.gz|fastq] > aligned_pairs.sam
 
 ### 2) File Conversions and Cleaning
 #### 2a) SAM to BAM Conversion
