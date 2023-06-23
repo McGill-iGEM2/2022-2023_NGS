@@ -19,6 +19,7 @@ GATK Workshop GDrive
 
 NGS Pipeline Tutorials
   https://hbctraining.github.io/variant_analysis/lessons/06_alignment_file_processing.html
+  https://rbatorsky.github.io/intro-to-ngs-bioinformatics/lessons/03_Alignment.html
   
 ## Readings
 A software tool to help prioritize potential driver mutations (since these are more likely to be specific and universal to the tumor).
