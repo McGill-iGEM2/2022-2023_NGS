@@ -52,5 +52,4 @@ done
 echo "Done!"
 
 # TODO
-# picard addorremovereadgroups
 # testing mutect2
