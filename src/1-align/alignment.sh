@@ -19,8 +19,8 @@ while getopts "r:n:t:p" option; do
         r) ref=$OPTARG
             if [ ! -f $ref.bwt ]; then
                 echo -e "Indexing reference genome...\n"
-                #bwa index $ref
-                #samtools faidx $ref
+                bwa index $ref
+                samtools faidx $ref
             fi
             echo $ref
             ;;
