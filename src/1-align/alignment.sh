@@ -1,49 +1,67 @@
 #!/bin/bash
 
-while getopts "r:pn:t:" option; do
+#set -f
+#IFS=' '
+
+function getopts-extra () {
+    declare i=1
+    # if the next argument is not an option, then append it to array OPTARG
+    while [[ ${OPTIND} -le $# && ${!OPTIND:0:1} != '-' ]]; do
+        OPTARG[i]=${!OPTIND}
+        let i++ OPTIND++
+    done
+}
+
+PAIRED=false
+
+while getopts "r:n:t:p" option; do
     case $option in
         r) ref=$OPTARG
             if [ ! -f $ref.bwt ]; then
                 echo -e "Indexing reference genome...\n"
-                bwa index $ref
-                samtools faidx $ref
+                #bwa index $ref
+                #samtools faidx $ref
             fi
+            echo $ref
             ;;
         p)  PAIRED=true
             ;;
-        n)  set -f
-            IFS=' '
-            shift $(($OPTIND-2))
+        n)  getopts-extra "$@"
+            args=( "${OPTARG[@]}" )
+            n1=${args[0]}
+            n2=${args[1]}
 
-            n_file_path=$(dirname $1)
+            n_file_path=$(dirname $n1)
             echo -e "\nAligning normal sample to reference genome...\n"
 
-            if [ -z $2 ] # only one file, paired ends concatenated
+            if [ -z $n2 ] # only one file, paired ends concatenated
             then
-                if $PAIRED ; then
-                    bwa mem -p $ref $1 > $n_file_path/n_aligned.sam
+                if $PAIRED
+                then
+                    bwa mem -p $ref $n1 > $n_file_path/n_aligned.sam
                 else
-                    bwa mem $ref $1 > $n_file_path/n_aligned.sam
+                    bwa mem $ref $n1 > $n_file_path/n_aligned.sam
                 fi
             else # two files
-                bwa mem $ref $1 $2 > $n_file_path/n_aligned.sam
+                bwa mem $ref $n1 $n2 > $n_file_path/n_aligned.sam
             fi
             ;;
-        t)  set -f
-            IFS=' '
-            shift $(($OPTIND-2))
+        t)  getopts-extra "$@"
+            args=( "${OPTARG[@]}" )
+            t1=${args[0]}
+            t2=${args[1]}
 
-            t_file_path=$(dirname $1)
+            t_file_path=$(dirname $t1)
             echo -e "\nAligning tumour sample to reference genome...\n"
 
-            if [ -z $2 ]; then
+            if [ -z $t2 ]; then
                 if [ $PAIRED ]; then
-                    bwa mem -p $ref $1 > $t_file_path/t_aligned.sam
+                    bwa mem -p $ref $t1 > $t_file_path/t_aligned.sam
                 else
-                    bwa mem $ref $1 > $t_file_path/t_aligned.sam
+                    bwa mem $ref $t1 > $t_file_path/t_aligned.sam
                 fi
             else
-                bwa mem $ref $1 $2 > $t_file_path/t_aligned.sam
+                bwa mem $ref $t1 $t2 > $t_file_path/t_aligned.sam
             fi
             ;;
     esac
