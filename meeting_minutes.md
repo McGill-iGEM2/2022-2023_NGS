@@ -1,3 +1,23 @@
+## Monday, June 26, 2023
+Review of everything that's been done so far! Getting people caught up, short meeting overall
+Updates:
+- Henry will be running the expression level program over the TCGA's TSV files
+    - As a metric Jasmin suggests first finding genes with sufficient level in a single file, then calculating what proportion of the files contain those genes
+    - (This is opposed to averaging the expression level of of each gene across all files, since percentiles depend on the data in any given file and may not be representative)
+- Roadblock on Mutect2 is preventing progress on later parts of the NGS pipeline
+    - Long runtimes and memory errors mean that we will likely want to start running jobs on ComputeCanada instead of locally
+        - Here are some resources for it: [What is a scheduler](https://docs.alliancecan.ca/wiki/What_is_a_scheduler%3F), [Running jobs](https://docs.alliancecan.ca/wiki/Running_jobs), and (less importantly) [CC's Job Scheduling Policies](https://docs.alliancecan.ca/wiki/Job_scheduling_policies)
+- For the smaller projects/wet lab tools, we would like to make a GUI so that people who aren't familir with running a script or using the command line can easily use them
+    - Need to start thinking about general design we want to have.. Dan suuggested having everything in a single program where people can select which tool they want to use
+    - Also need to decide what language we'll be using for front end/how we'll be deploying everything
+    - For now, code will be put in the tutorials folder
+    - Olivia has volunteered to work on this; would also be a good project for people who are less experienced and want to contribute but don't have the time to invest in learning about the other aspects of our dry lab work
+- Dan will start doing some lit review on gRNA design
+- Need to create a strategy for how we want to test gRNA binding efficiency in the wet lab
+    - Albert proposes using GFP and using flow cytometry
+    - Issue is, how dod we decide what gRNAs to order and test? Do we want to target a single gene more comprehensively or try targetting mutiple mutations for some variance? Will definitely be a point of discussion moving forward
+
+
 ## Thursday, June 22, 2023
 Questions/Updates:
 - Optical duplicates vs amplification duplicates
