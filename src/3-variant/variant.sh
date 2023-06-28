@@ -13,4 +13,5 @@ gatk Mutect2 \
     -R $ref \
     -I $normal \
     -I $tumour \
+    -normal normal \
     -O $out
