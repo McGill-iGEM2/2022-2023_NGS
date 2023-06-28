@@ -6,6 +6,9 @@ Tumour: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SR
 
 Normal: https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&acc=SRR12331408&display=download
 
+dbSNP (Mutect 2): https://ftp.ncbi.nlm.nih.gov/snp/latest_release/VCF/
+
+Paper we've been pulling data from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9177421/
 ## Software
 Fasterq-dump
   https://github.com/ncbi/sra-tools/wiki/08.-prefetch-and-fasterq-dump/a58c2a07022dc7b0b043529ee01879b5381fe862
@@ -18,6 +21,7 @@ GATK Workshop GDrive
 
 NGS Pipeline Tutorials
   https://hbctraining.github.io/variant_analysis/lessons/06_alignment_file_processing.html
+  https://rbatorsky.github.io/intro-to-ngs-bioinformatics/lessons/03_Alignment.html
   
 ## Readings
 A software tool to help prioritize potential driver mutations (since these are more likely to be specific and universal to the tumor).
