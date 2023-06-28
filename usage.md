@@ -61,4 +61,21 @@ The script should be run as follows:
 ```
 
 ## 3-variant
-TBD...
+The `variant.sh` script is used to call variants. This can be done either in tumour-only mode or in matched (tumour-normal) mode. The script takes in the following arguments:
+
+```
+Usage: ./variant.sh [options] -r <reference genome> -n <cleaned normal sample> -t <cleaned tumour sample> -o <output directory>
+Options:
+    -r  Reference genome
+    -n  Cleaned normal sample
+    -t  Cleaned tumour sample
+    -o  Output directory
+```
+
+The `-n` and `-t` flags are used to indicate the normal and tumor samples, respectively. They should be called with the same reference genome that was used during alignment. The `-o` flag is used to indicate the output directory.
+
+The script should be run as follows:
+
+```
+./variant.sh -r reference.[fa|fasta|*.gz] -n cleaned_normal.bam -t cleaned_tumor.bam -o output_directory
+```
