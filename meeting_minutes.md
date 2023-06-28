@@ -1,5 +1,6 @@
 ## Monday, June 26, 2023
 Review of everything that's been done so far! Getting people caught up, short meeting overall
+
 Updates:
 - Henry will be running the expression level program over the TCGA's TSV files
     - As a metric Jasmin suggests first finding genes with sufficient level in a single file, then calculating what proportion of the files contain those genes
@@ -16,6 +17,10 @@ Updates:
 - Need to create a strategy for how we want to test gRNA binding efficiency in the wet lab
     - Albert proposes using GFP and using flow cytometry
     - Issue is, how dod we decide what gRNAs to order and test? Do we want to target a single gene more comprehensively or try targetting mutiple mutations for some variance? Will definitely be a point of discussion moving forward
+- Have begun discussing a modeling component of the project once again
+    - What exactly will we be modeling? What data would we need for it from wet lab? How feasible would it be to get the data and complete the model?
+    - Will be meeting with James on Thursday at 4pm to brainstorm more. Should do some lit review beforehand
+- Meeting with Lethbridge to brainstorm collab ideas on Wednesday at 3pm
 
 
 ## Thursday, June 22, 2023
