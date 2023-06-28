@@ -11,19 +11,20 @@ while getopts "n:t:" option; do
 
             echo -e "Query-sorting BAM file...\n"
 
-            picard SortSam \
-                INPUT=$n_path/n_aligned.bam \
-                OUTPUT=$n_path/n_qsorted_aligned.bam \
-                SORT_ORDER=queryname
+            # picard SortSam \
+            #     INPUT=$n_path/n_aligned.bam \
+            #     OUTPUT=$n_path/n_qsorted_aligned.bam \
+            #     SORT_ORDER=queryname
 
             picard AddOrReplaceReadGroups \
-                I=$n_path/n_aligned.sam \
+                I=$n_path/n_aligned.bam \
                 O=$n_path/n_qsorted_aligned.bam \
                 RGID=SRR12331408 \
                 RGLB=lib1 \
                 RGPL=illumina \
                 RGPU=unit1 \
-                RGSM=20
+                RGSM=normal \
+                SORT_ORDER=queryname
 
             echo -e "\nMarking and removing duplicates...\n"
 
@@ -53,19 +54,20 @@ while getopts "n:t:" option; do
 
             echo -e "\nQuery-sorting BAM file...\n"
 
-            picard SortSam \
-                INPUT=$t_path/t_aligned.bam \
-                OUTPUT=$t_path/t_qsorted_aligned.bam \
-                SORT_ORDER=queryname
+            # picard SortSam \
+            #     INPUT=$t_path/t_aligned.bam \
+            #     OUTPUT=$t_path/t_qsorted_aligned.bam \
+            #     SORT_ORDER=queryname
 
             picard AddOrReplaceReadGroups \
-                I=$t_path/t_aligned.sam \
-                O=$t_path/t_RG_aligned.bam \
+                I=$t_path/t_aligned.bam \
+                O=$t_path/t_qsorted_aligned.bam \
                 RGID=SRR12331371 \
                 RGLB=lib1 \
                 RGPL=illumina \
                 RGPU=unit1 \
-                RGSM=20 \
+                RGSM=normal \
+                SORT_ORDER=queryname
 
             echo -e "\nMarking and removing duplicates...\n"
 

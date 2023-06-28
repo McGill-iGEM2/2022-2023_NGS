@@ -19,7 +19,6 @@ while getopts "r:n:t:p" option; do
                 bwa index $ref
                 samtools faidx $ref
             fi
-            echo $ref
             ;;
         p)  PAIRED=true
             ;;
@@ -52,7 +51,8 @@ while getopts "r:n:t:p" option; do
             echo -e "\nAligning tumour sample to reference genome...\n"
 
             if [ -z $t2 ]; then
-                if [ $PAIRED ]; then
+                if $PAIRED; 
+                then
                     bwa mem -p $ref $t1 > $t_file_path/t_aligned.sam
                 else
                     bwa mem $ref $t1 > $t_file_path/t_aligned.sam
@@ -65,6 +65,3 @@ while getopts "r:n:t:p" option; do
 done
 
 echo "Done!"
-
-###
-# modeling pyroptosis in cell?
