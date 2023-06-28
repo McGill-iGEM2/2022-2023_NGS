@@ -66,7 +66,7 @@ while getopts "n:t:" option; do
                 RGLB=lib1 \
                 RGPL=illumina \
                 RGPU=unit1 \
-                RGSM=normal \
+                RGSM=tumour \
                 SORT_ORDER=queryname
 
             echo -e "\nMarking and removing duplicates...\n"
