@@ -86,9 +86,26 @@ Find # of reads.
 
 
 ## Set-up Instructions
-### BWA-MEM
+Many (or maybe all) of the software we will be using can be installed through conda/bioconda, which is a package manager. Conda simplifies the steps required to run a program, and set-up is often as simple as running one line of code. However, you may wish to get the software directly instead of through conda. This section will detail both ways.
+### Installing Conda (if you wish)
 
+### BWA-MEM
+#### Option 1: With conda
+Run one of the following commands ([source](https://anaconda.org/bioconda/bwa)):
+- `conda install -c bioconda bwa`
+- `conda install -c "bioconda/label/cf201901" bwa`
+#### Option 2: Without conda
+Navigate to the directory you want the bwa folder to be in, and run all of the following in sequence([source](https://github.com/lh3/bwa)):
+
+    git clone https://github.com/lh3/bwa.git
+    cd bwa 
+    make
+
+### Samtools
+### Picard
+### SRA Toolkit
 ### MuTect2
+
 
 ## Detailed Pipeline
 ### 0) Prefetching `fastq` Dataset
@@ -192,7 +209,12 @@ Indices in alignment files help direct downstream packages to the regions of int
 #### 3b) Variant Calling
 
 <li>Program: GATK Mutect2</li>
-<li>Input: sequence dictionary (reference), BAM file (normal, tumour)</li>
+<li>Input: sequence dictionary (reference), BAM file(s) (tumour, optional normal)</li>
 <li>Output: VCF file</li>
 
-    gatk Mutect2 -R <<reference.fasta>> -I <<normal.bam>> -I <<tumour.bam>> -O <<output.vcf>>
+##### i) Using Mutect2 in tumor-only mode
+
+    gatk Mutect2 -R <<reference.fasta>> -I <<tumour.bam>> -O <<output.vcf>>
+##### ii) Using Mutect2 in matched normal mode 
+
+    gatk Mutect2 -R <<reference.fasta>> -I <<normal.bam>> -I <<tumour.bam>> -normal <<name of the normal file>> -O <<output.vcf>>
