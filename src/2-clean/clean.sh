@@ -7,16 +7,16 @@ while getopts "n:t:" option; do
             echo "Cleaning normal sample..."
             echo "Converting from SAM to BAM..."
 
-            # samtools view -bS $normal > $n_path/n_aligned.bam
+            samtools view -bS $normal > $n_path/n_aligned.bam
 
-            # echo -e "Query-sorting BAM file...\n"
+            echo -e "Query-sorting BAM file...\n"
 
-            # picard SortSam \
-            #     INPUT=$n_path/n_aligned.bam \
-            #     OUTPUT=$n_path/n_qsorted_aligned.bam \
-            #     SORT_ORDER=queryname
+            picard SortSam \
+                INPUT=$n_path/n_aligned.bam \
+                OUTPUT=$n_path/n_qsorted_aligned.bam \
+                SORT_ORDER=queryname
 
-            picard AddOrRemoveReadGroups \
+            picard AddOrReplaceReadGroups \
                 I=$n_path/n_aligned.sam \
                 O=$n_path/n_qsorted_aligned.bam \
                 RGID=SRR12331408 \
@@ -49,23 +49,28 @@ while getopts "n:t:" option; do
             echo "Cleaning tumour sample..."
             echo "Converting from SAM to BAM..."
 
-            # samtools view -bS $tumour > $t_path/t_aligned.bam
+            samtools view -bS $tumour > $t_path/t_aligned.bam
 
-            # echo -e "\nQuery-sorting BAM file...\n"
+            echo -e "\nQuery-sorting BAM file...\n"
 
-            # picard SortSam \
-            #     INPUT=$t_path/t_aligned.bam \
-            #     OUTPUT=$t_path/t_qsorted_aligned.bam \
-            #     SORT_ORDER=queryname
+            picard SortSam \
+                INPUT=$t_path/t_aligned.bam \
+                OUTPUT=$t_path/t_qsorted_aligned.bam \
+                SORT_ORDER=queryname
 
-            picard AddOrRemoveReadGroups \
+            picard AddOrReplaceReadGroups \
                 I=$t_path/t_aligned.sam \
-                O=$t_path/t_qsorted_aligned.bam \
+                O=$t_path/t_RG_aligned.bam \
                 RGID=SRR12331371 \
                 RGLB=lib1 \
                 RGPL=illumina \
                 RGPU=unit1 \
-                RGSM=20
+                RGSM=20 \
+
+            picard SortSam \
+                INPUT=$t_path/t_RG_aligned.bam \
+                OUTPUT=$t_path/t_qsorted_aligned.bam \
+                SORT_ORDER=queryname
 
             echo -e "\nMarking and removing duplicates...\n"
 

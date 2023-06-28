@@ -1,5 +1,15 @@
 # Errors encountered and their solutions
+## 1) Alignment
+### Section 1b) Aligning the reads to the reference genome
 
+- Problem: `bwa mem` throws the following warning:
+
+        [M::mem_pestat] skip orientation RR as there are not enough pairs
+
+- Solution: The paired end files are missing identifiers in their header names. The header names should end with `/1` and `/2` for the forward and reverse reads, respectively. This can be fixed using the flag `-R`. The argument is a read group header line with the sample name, library name, platform, and platform unit. The platform unit should end with `/1` and `/2` for the forward and reverse reads, respectively.
+
+        bwa mem -R '@RG\tID:<<read_group_id>>\tLB:<<read_group_library>>\tPL:<<read_group_platform>>\tPU:<<read_group_platform_unit>>\tSM:<<read_group_sample>>' reference.[gz|fasta] paired_1.fastq paired_2.fastq > aligned_pairs.sam
+        
 ## 2) Cleaning
 
 ### Section: 2c) Marking and removing duplicates
