@@ -51,20 +51,20 @@ Summary
 2) Data Validation
     - Teams send each other data, software, and instructions, and we see if our results are reproducible
 
-To-Do:
+- To-Do:
     - Send list of progarms and packages
     - We look into how to get into cloud computing, etc. 
     - Then when we exchange data, we also give them guidebook instructions
 
 - Guidebook
-    - OUtline by task
+    - Outline by task
         e.g. I want to do genomics, here are the tools
             cover use cases
     - cover fundamentals
-        CL
-        AWS
-        CC
-        Gitlab
+        - CL
+        - AWS
+        - CC
+        - Gitlab
 
 Cover use cases under each category
 - explanations of what they do, how they work
