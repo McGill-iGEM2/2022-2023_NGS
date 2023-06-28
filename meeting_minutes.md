@@ -1,3 +1,81 @@
+## Wednesday, June 28, 2023 (Lethbridge)
+From Last Meeting
+- Standardizing software on CC
+- E.g. MD -> AMBER
+    - Should have similar code
+    - Should be able to send each other data wo looking into what data is (reproducibility)
+    - Running MD in cc -> seed (tells program to run exxact same way each time)
+- Send each other PDB files, using standards that we set, can we get matching results
+Today
+- Protein modeling -> unsure how much we would want 
+- CC -> colab in establishing a how-to guide, how to get started in CC as an iGEM team
+- Even other software, make accessbile (for teams outside of canada as well)
+    - AWS (readily accessible almost anywhere)
+        - Issue: cost!
+        - Need team agreement to use AWS
+    - Microsoft Azure
+- How-to guide for cloud computing in general for dry lab teams
+    - Latch? Provides on-demand cloud computing
+        - They use AWS server (but for the tools that they provide, not our own programs? unsure will need to check)
+- Standards for ige teams across the board
+- Start with Canadian teams, then build from there
+- Approaches
+    - each team has their own software, so we can teach other how to use these softwares
+    - Guides for specific softwares that we use
+    - If we receive files from another team, can we run their software?
+- So we don't have to learn brand new software
+    - Synergy! 
+    - Come up with miniature tutorials
+- Send each other our files, and see if they can reproduce it -> also important to see compatibility between different systems
+    - Genetic data -> key mutations
+        - We give them the sfotware, do they get same mutations
+        - Ensure that our results aren't through luck
+    - MD simulations -> also similar results
+- Timeline: one month to send data?
+    - 'We gave same data to these teams, and here are their results. This is how we validated our results.'
+    - How many teams do we want to include?
+        - UofAlberta and UofCalgary (outreach from us and Lethbridge)
+        - UBC?
+- Dry lab Guidebook
+    - Cloud computing
+    - Git
+    - Github
+    - Gitlab (most relevant)
+
+Summary
+1) Dry Lab Guidebook for iGEM Teams
+    - Cloud computing
+    - Git
+    - Github
+    - Gitlab (most relevant)
+2) Data Validation
+    - Teams send each other data, software, and instructions, and we see if our results are reproducible
+
+To-Do:
+    - Send list of progarms and packages
+    - We look into how to get into cloud computing, etc. 
+    - Then when we exchange data, we also give them guidebook instructions
+
+- Guidebook
+    - OUtline by task
+        e.g. I want to do genomics, here are the tools
+            cover use cases
+    - cover fundamentals
+        CL
+        AWS
+        CC
+        Gitlab
+
+Cover use cases under each category
+- explanations of what they do, how they work
+
+1) Fundamentals
+    - Data science
+    - Statistics
+2) Protein modeling
+3) Genomics
+4) Data science?
+
 ## Monday, June 26, 2023
 Review of everything that's been done so far! Getting people caught up, short meeting overall
 
@@ -21,7 +99,6 @@ Updates:
     - What exactly will we be modeling? What data would we need for it from wet lab? How feasible would it be to get the data and complete the model?
     - Will be meeting with James on Thursday at 4pm to brainstorm more. Should do some lit review beforehand
 - Meeting with Lethbridge to brainstorm collab ideas on Wednesday at 3pm
-
 
 ## Thursday, June 22, 2023
 Questions/Updates:
