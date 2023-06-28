@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#set -f
-#IFS=' '
-
 function getopts-extra () {
     declare i=1
     # if the next argument is not an option, then append it to array OPTARG

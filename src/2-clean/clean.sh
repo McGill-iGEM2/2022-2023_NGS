@@ -67,11 +67,6 @@ while getopts "n:t:" option; do
                 RGPU=unit1 \
                 RGSM=20 \
 
-            picard SortSam \
-                INPUT=$t_path/t_RG_aligned.bam \
-                OUTPUT=$t_path/t_qsorted_aligned.bam \
-                SORT_ORDER=queryname
-
             echo -e "\nMarking and removing duplicates...\n"
 
             picard MarkDuplicates \
