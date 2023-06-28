@@ -72,7 +72,7 @@ Options:
     -o  Output directory
 ```
 
-The `-n` and `-t` flags are used to indicate the normal and tumor samples, respectively. They should be called with the same reference genome that was used during alignment. The `-o` flag is used to indicate the output directory.
+The `-n` and `-t` flags are used to indicate the normal and tumor samples, respectively. They should be called with the same reference genome that was used during alignment. The `-o` flag is used to indicate the output directory. By default, this script calls `Mutect2` in matched tumour-normal mode.
 
 The script should be run as follows:
 
