@@ -1,3 +1,17 @@
+## Thursday, June 29, 2023
+Between NGS and gRNA
+- NMD decay
+- Mutation frequency
+- Gene expression (Albert and Henry, done)
+- RNA structure (based on predictions, less important)
+- Prioritizing driver mutations (https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00830-0)
+
+Guide Design
+- Melting temperature, limited to mutation you chose
+- Creating library of gRNAs
+- From Henry's file, take sequence of genes in highest percentiles, and design gRNAs for those
+    - Also need to check if they have the mutation we want to target
+
 ## Wednesday, June 28, 2023 (Lethbridge)
 From Last Meeting
 - Standardizing software on CC
@@ -51,20 +65,20 @@ Summary
 2) Data Validation
     - Teams send each other data, software, and instructions, and we see if our results are reproducible
 
-- To-Do:
+To-Do:
     - Send list of progarms and packages
     - We look into how to get into cloud computing, etc. 
     - Then when we exchange data, we also give them guidebook instructions
 
 - Guidebook
-    - Outline by task
+    - OUtline by task
         e.g. I want to do genomics, here are the tools
             cover use cases
     - cover fundamentals
-        - CL
-        - AWS
-        - CC
-        - Gitlab
+        CL
+        AWS
+        CC
+        Gitlab
 
 Cover use cases under each category
 - explanations of what they do, how they work
