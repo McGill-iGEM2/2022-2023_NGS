@@ -17,7 +17,6 @@
   ```
 
 ## Pipeline Overview
-## Pipeline Overview
 1) Prefetching `fastq` Dataset
 
   - Program: SRAtoolkit
