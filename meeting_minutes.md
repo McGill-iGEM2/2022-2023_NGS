@@ -1,3 +1,50 @@
+## Thursday, June 29, 2023 (Modeling Project)
+Idea(s):
+- PDE/ODE
+    - Can turn into paper
+    - Understand craspase system better
+- Designing gRNA for CRISPR system
+    - But we don't know anything about system
+    - Can we test this
+        - Bunch of gRNAs -> screen for efficiency
+        - From this data, we develop a model for efficiency
+---
+- How?
+    - Craspase cuts protein -> designing fusion protein where we have GFP fused to domain public degron 
+        - GFP will get recycled and destryoed by cell
+        - What if we put CSX30 between GFP and degron
+            - If craspase is activated, GFP will not be recycled (we see in fluorescence)
+    - Do this in lab, then use data to model
+    - Compare between gRNAS, see which is efficient
+        - More efficient is more cutting, so less GFP is degraded
+- What to do?
+    - Cloning gRNAs into a backbone and express in yeast
+    - Yeast will have different gRNA
+        - Let grow -> see population of each gRNA in cluster
+    - Perform flow cytometry to sort based on GFP expression
+    - Compare groups before and after (sorted by high GFP +ve)
+        - Sequence gRNA in sorted group
+        - Get new gRNA population %
+            - If all equally efficient, we have same ratio
+            - But if one is more efficient, its ratio will increase
+- Models
+    1) Given gene and these parameters, create these gRNAS
+    2) Given gRNA sequence, predict efficiency -> AI model?
+---
+- Next steps
+    - Create library of gRNAs that we want to test
+        - Synthesize that ourselves
+        - Need to see what parameters to vary in the library
+            - Purposefully create gRNAs that we think are good, bad or mid to have a range of data
+                - E.g. GC content, Gibbs free energy, etc.
+            - When choosing gRNAs, make sure they are relatively unique
+                - To prevent gRNA from binding to more than one site (want to bind to intended site)
+---
+- In yeast, express a gene that we want gRNA to target
+    - Give this to model, generate a sequence of gRNA based on a given set of parameters
+        - From gene, create a gRNA starting with each sequential BP
+            - Determine its parameter values
+---
 ## Thursday, June 29, 2023
 Between NGS and gRNA
 - NMD decay
@@ -11,7 +58,7 @@ Guide Design
 - Creating library of gRNAs
 - From Henry's file, take sequence of genes in highest percentiles, and design gRNAs for those
     - Also need to check if they have the mutation we want to target
-
+---
 ## Wednesday, June 28, 2023 (Lethbridge)
 From Last Meeting
 - Standardizing software on CC
@@ -89,7 +136,7 @@ Cover use cases under each category
 2) Protein modeling
 3) Genomics
 4) Data science?
-
+---
 ## Monday, June 26, 2023
 Review of everything that's been done so far! Getting people caught up, short meeting overall
 
@@ -113,7 +160,7 @@ Updates:
     - What exactly will we be modeling? What data would we need for it from wet lab? How feasible would it be to get the data and complete the model?
     - Will be meeting with James on Thursday at 4pm to brainstorm more. Should do some lit review beforehand
 - Meeting with Lethbridge to brainstorm collab ideas on Wednesday at 3pm
-
+---
 ## Thursday, June 22, 2023
 Questions/Updates:
 - Optical duplicates vs amplification duplicates
@@ -137,13 +184,13 @@ Things to consider for future (and current) steps:
 - Make sure to add a step comparing to dbSNP to check for common mutations
 - If normal data isn't great, can run tumor only and reference against common germline variants
 - Indel realignment probably necessary for quality control still
-
+---
 ## Monday, June 19, 2023
 Assignments:
 - Finding % of aligned reads (@elya)
 - Getting raw fastq, aligning to reference genome and bringing them through preprocessing/mutect (@jennifertramsu, @bsegall02)
 - Script to get expression level of different genes (@albert)
-
+---
 ## Thursday, June 15, 2023
 gRNA things to consider:
 - Cas-9 DNA melting temperature
@@ -166,7 +213,7 @@ gRNA how to do it:
     - Found a tool, [NMD classifier](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0174798). Requires a transcript so we would want to feed it every transcript that ref-seq predicts
 - Targetting expression level - would be good to target maybe top 50% because it tends to be logorithmic
     - Need to start working on this, shouldn't be too bad. Looking through MAF files Jasmin send and writing a script to get the fraction of samaples where the gene is expressed
- 
+---
 ## Monday, June 12, 2023
 Updates:
 - Pilar working on the BWA part of the pipeline
@@ -182,7 +229,7 @@ Tasks:
 - % of aligned reads, start logging process on github (@elya)
 - Everybody apply for compute canada account (@everybody)
 - Get wet lab to make a list of tools that would be useful to have for us to start working on
-
+---
 ## Thursday, June 8, 2023
 Tasks:
 - Running the [pipeline](https://github.com/bioinform/somaticseq)
@@ -196,7 +243,7 @@ Tasks:
         - Output: ??
     - We will probably want to run MuTect2 individually. Will also need to find argument to pass to MuTect2 that calculates allele frequency.
 - Compute Canada -> storing data on Compute Canada and finding out how to access the data locally (@bsegall02)
-
+---
 ## Monday, June 5, 2023
 Updates:
 - Pilar found that marked dupliciates are useful but depends on the data. More useful in case there are issues with the data itself. 
@@ -212,7 +259,7 @@ Problems/Tasks:
 - Try other parts of GATK to see if it's working/we can use it for other things. Ex. marking duplicates, which doesn't require reference file (@bsegall02)
 - Continue trying to solve contigs issue for Mutect2. Ideas are renaming them in the fasta file, convertinig BAM to SAM, gzipping, and editing that, or looking for more reference files that have matching names (@besgall02, @jennifertramsu)
 - Look through the github of Albert's paper, see if we can steal* their scripts to run the whole pipeline or individual parts (@pilar, @bsegall02)
-
+---
 ## Thursday, June 1, 2023
 Updates:
 - Mutect2 should have a built-in function for mutation fractions, allele frequency
@@ -226,7 +273,7 @@ Problems/Tasks:
 - Look into BAM -> Harmonized BAM step, whether it's necessary and what tools to use (@pilar)
 - Finish draft SHAD presentation/script, small edits in the activity and tutorial(@owen @bsegall02)
 - Will start discussion on gRNA design: what factors to prioritize and what libraries can figure out those things (@albert @bsegall02 @jonas @henry)
-
+---
 ## Monday, May 29, 2023
 Problems:
 - IndelRealigner not available in GATK > v3.6 -> look into alternatives (@olivialopardo)
