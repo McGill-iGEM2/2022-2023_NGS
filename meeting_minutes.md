@@ -1,3 +1,20 @@
+## Thursday, June 29, 2023
+Updates:
+- Mutect2 is working!
+    - Have a successful run with chromosome 12, both tumor only and matched normal mode
+    - Output vcf.gz files have been pushed to github
+    - Memory usage: Runtime.totalMemory()=1358954496
+    - KRAS is line 1166 on the matched vcf
+- Review of rest of the pipeline
+    - Filtering out false positives.
+        - What criteria is this even based on?
+        - Does it matter? Since we'll be targetting the mutations that are most expressed, which are least likely to be false positives anyway
+    - Need to figure out what information is already given in the vcf from mutect and what more is needed
+    - Are there other flags we can give to Mutect2 to get more information and skip some annotation/filtering steps?
+    - Check out the programs Miranda sent: [ANNOVAR](https://annovar.openbioinformatics.org/en/latest/) and [GATK Variant Annotator](https://gatk.broadinstitute.org/hc/en-us/articles/360040095872-VariantAnnotator)
+    - I'm also looking through gatk for other things to use (would be nice to have a program to help with vcf readability)
+    
+
 ## Wednesday, June 28, 2023 (Lethbridge)
 From Last Meeting
 - Standardizing software on CC
