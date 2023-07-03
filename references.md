@@ -24,6 +24,9 @@ NGS Pipeline Tutorials
   https://rbatorsky.github.io/intro-to-ngs-bioinformatics/lessons/03_Alignment.html
   
 ## Readings
+False-positives summary
+  https://ics.hutton.ac.uk/software/tools/false-positive-snps/
+
 A software tool to help prioritize potential driver mutations (since these are more likely to be specific and universal to the tumor).
   https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-021-00830-0
 
