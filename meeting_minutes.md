@@ -1,3 +1,21 @@
+## Monday, July 3, 2023
+gRNA
+- Checking melting temp/gibbs in the middle and in the seed region
+- Gonna test on HMG2?
+- Need to check secondary structure to avoid hairpins
+- [Tool to check GC content](https://support.snapgene.com/hc/en-us/articles/10383813095700-Show-a-Plot-of-GC-Content)
+
+NGS Updates
+- We have vcf files for: Chromosome 12 tumor only, Chromosome 12 matched normal, Full Genome matched normal
+- Have been experimenting with different annotation flags, there are some for filtering as well
+    - Miranda suggests not using these flags, and doing filtering and annotation afterwards using first GATK, then ANNOVAR, then whatever else
+- Should probably use the panel of normals and germline resource inputs
+    - Did some reading into them, need to look more to better understand what they actually do but they should be helpful
+        - I think that PON is used to eliminte technical artifacts - it's created using a bunch of normal samples run in tumor-only mode, and each sample is supposed to have been taken using the same sequencing tech, prep methods, etc. ([Here's the GATK entry](https://gatk.broadinstitute.org/hc/en-us/articles/360035890631-Panel-of-Normals-PON-))
+        - Germline inputs seems like another panel but uses the frequency of variants in the population. This gives a prior that the sample carries the variant allele, used in their probabilistic model. [Description of it here](https://gatk.broadinstitute.org/hc/en-us/articles/360050722212-FAQ-for-Mutect2#:~:text=The%20germline%20resource%20is%20used,statistical%20model%20for%20germline%20variation.)
+- [Detailed Mutect2 docs](https://github.com/broadinstitute/gatk/blob/master/docs/mutect/mutect.pdf)
+
+
 ## Thursday, June 29, 2023 (Modeling Project)
 Idea(s):
 - PDE/ODE
