@@ -26,6 +26,7 @@ More NGS
     - Allele depth and frequency
     - Missingness
     - etc.
+- For the sake of time, Miranda suggests testing on Chr22 because it is the shortest
 
 ## Thursday, June 29, 2023 (Modeling Project)
 Idea(s):
