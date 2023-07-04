@@ -15,6 +15,17 @@ NGS Updates
         - Germline inputs seems like another panel but uses the frequency of variants in the population. This gives a prior that the sample carries the variant allele, used in their probabilistic model. [Description of it here](https://gatk.broadinstitute.org/hc/en-us/articles/360050722212-FAQ-for-Mutect2#:~:text=The%20germline%20resource%20is%20used,statistical%20model%20for%20germline%20variation.)
 - [Detailed Mutect2 docs](https://github.com/broadinstitute/gatk/blob/master/docs/mutect/mutect.pdf)
 
+More NGS
+- Raw VCF should be annotated (1) by GATK for sample specific annotations (e.g. allele depth, allele frequency) then (2) by VEP for annotations based on population databases (severity, PLI)
+    (1) Need to do literature review to determine appropriate thresholds
+    (2) VEP is like a centralized call for databases such as GNOMAD and CLINVAR. Can rank based on severity, how clinically damaging a variant is, etc.
+- Some annotations include:
+    - QC
+    - DP
+    - HWE
+    - Allele depth and frequency
+    - Missingness
+    - etc.
 
 ## Thursday, June 29, 2023 (Modeling Project)
 Idea(s):
