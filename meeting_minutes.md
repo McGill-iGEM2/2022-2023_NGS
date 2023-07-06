@@ -3,6 +3,10 @@ Updates:
 - Develop project description to give to Team India for collaboration
 - Discussion on dry lab guide book -> skeleton is made, being fleshed out
 - WetLab GUI project -> Hyerin + Olivia planning UI
+- gRNA
+    - GC content, Gibbs free energy
+        - Replace GC with Gibbs?
+    - Look into structure
 
 ## Monday, July 3, 2023
 gRNA
