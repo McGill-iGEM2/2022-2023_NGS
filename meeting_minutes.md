@@ -1,3 +1,9 @@
+## Thursday, July 6, 2023
+Updates:
+- Develop project description to give to Team India for collaboration
+- Discussion on dry lab guide book -> skeleton is made, being fleshed out
+- WetLab GUI project -> Hyerin + Olivia planning UI
+
 ## Monday, July 3, 2023
 gRNA
 - Checking melting temp/gibbs in the middle and in the seed region
