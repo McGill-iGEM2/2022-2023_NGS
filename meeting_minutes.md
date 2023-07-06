@@ -5,11 +5,16 @@ Updates:
 - WetLab GUI project -> Hyerin + Olivia planning UI
 - gRNA
     - GC content, Gibbs free energy
-        - Replace GC with Gibbs?
-    - Look into structure
+        - GC, Gibbs, Melting temp are all functionally the same? So don't need to consider all of them probably?
+    - **Look into structure**, this is something many papers have not considered
 - Instead of developing the library to build the model, should do it the other way around
     - Library will serve to validate the model
     - Library of 300 gRNAs too small for DL model
+- The factors that make a gRNA successful seem to be equivalent for all crispr systems. Do we get much out of testing these again with our library of gRNAs?
+    - Instead, will probably evaluate mismatches because they're factors that might be more unique to our system given the length of the gRNA.
+        - Need to pick a few targets in the gene/"base gRNAs" that we know will bind well normally, and then test single mismatches at every position. Will have to be careful about which we select since they need to be good
+        - Because indels are more likely to make the gRNA fail than other types of mutations, we can use them if we need a control that will hardly cleave or not at all
+    - After considering mismatches and structure, when deciding on a gRNA out of multiple options: can just rank the criteria that have been established and select the one with the best metrics, don't necessarily need a complicated model
 
 ## Monday, July 3, 2023
 gRNA
