@@ -7,6 +7,9 @@ Updates:
     - GC content, Gibbs free energy
         - Replace GC with Gibbs?
     - Look into structure
+- Instead of developing the library to build the model, should do it the other way around
+    - Library will serve to validate the model
+    - Library of 300 gRNAs too small for DL model
 
 ## Monday, July 3, 2023
 gRNA
