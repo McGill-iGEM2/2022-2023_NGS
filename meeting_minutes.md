@@ -1,3 +1,31 @@
+## Thursday, July 13, 2023
+gRNA
+- Should start looking at the TCGA datasets since they're highly processed, would be a better place to inform the guide designs
+    - These also have normal solid tissue samples rather than the NCBI dataset, which only has blood samples (potential for contamination?)
+    - The processing will hopefully have eliminated any other technical remnants or germline variants.
+- Thinking about good targets for the gRNA
+    - Indels probably not as great, less likely to be driver mutations? Would sometimes turn off tumour suppressors, not be very well expressed
+            -
+    - Driver mutations caused by Fusion events would be good to target, would be highly expressed and very unlikely to accidentally hit normal cells
+        - Here's one for pancreatic cancer: [Oncogenic NRG1 fusions: A new hope for targeted therapy in pancreatic cancer](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6679796/) 
+        - How to identify these though? Should be able to use paired end reads, if each end if of a completely different gene. Would have to do something during or before alignment though.
+            - Align to the transcriptome instead of the genome?  
+    - Can go through TCGA data and classify which mutations are inhibiting vs activating since some would be better targets than others
+        - If a mutation inhibits a gene it's probably not a good target since it's likely just trying to kill the gene.
+
+     
+gRNA Library
+- Should test the three sites we choose before ordering the entire library as well.
+- In terms selecting the target regions on the gene itself...
+    - Do we use something like CrispON and input a sequence that will be the beginning of our longer gRNA? A sequence that would be the end of the gRNA? Both?
+    - Make sure it has good GC content
+    - Check structure as well to make sure that won't be doing funky things
+- Could use the TIGER model from the paper that Dan sent. Since it's RNA, is probably a better jumping off point than the programs designed for Cas9.
+    -  Can use what it gives us, then manually check that sequence in each position of the longer gRNA we make and recalculate things the GC content, structure, etc. to find the best option
+    -  Can lso try to use their raw data to come up with general principles/rules, but not sure what would be generalizable besides RNA structure and melting temp which we already know.
+ 
+
+
 ## Thursday, July 6, 2023
 Updates:
 - Develop project description to give to Team India for collaboration
