@@ -145,6 +145,22 @@ If the forward and reverse reads are in the same file, you will only need to spe
 
     bwa mem -p reference.[gz|fasta] paired.[fastq.gz|fastq] > aligned_pairs.sam
 
+    The alignment process identifies the most likely positions in the reference genome or transcriptome from which the reads originate.
+
+detailed alignment instructions:
+
+* add fastq file with the shortened read length + the reference genome both from ncbi into the visual studio code repo cloned from github and into your own files
+*  stage + commit the addition of the files to the local repo
+* push changes to branch from the main repo on github 
+* download homebrew if not already installed
+* using homebrew, download BWA compiler locally in the terminal ( here you have to have a C compiler and zlib downloaded)
+*  write a tester c program in a seperate vs code file to check in terminal that the C compiler is working okay and downloaded correctly - it can cause a lot of problems
+* download samtools using homebrew in the terminal
+*  then index the reference genome in the terminal using bwa-index
+*  using the code provided in the pipeline, replace the file names, file paths and header with the relevant ones
+* (optional) use samtools (samtools view -Sb aligned_reads.sam > aligned _reads.bam) in terminal to  convert the output from SAM to BAM
+* the aligned file is added to the git repo
+
 ### 2) File Conversions and Cleaning
 #### 2a) SAM to BAM Conversion
 
