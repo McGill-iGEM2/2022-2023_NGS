@@ -7,9 +7,10 @@ gRNA
     - Indels probably not as great, less likely to be driver mutations? Would sometimes turn off tumour suppressors, not be very well expressed
             -
     - Driver mutations caused by Fusion events would be good to target, would be highly expressed and very unlikely to accidentally hit normal cells
-        - Here's one for pancreatic cancer: [Oncogenic NRG1 fusions: A new hope for targeted therapy in pancreatic cancer](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6679796/) 
+        - Here's one for pancreatic cancer: [Oncogenic NRG1 fusions: A new hope for targeted therapy in pancreatic cancer](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6679796/) [and in general](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7470623/)
         - How to identify these though? Should be able to use paired end reads, if each end if of a completely different gene. Would have to do something during or before alignment though.
-            - Align to the transcriptome instead of the genome?  
+            - Align to the transcriptome instead of the genome?
+            - [Recent advances in cancer fusion transcript detection](https://academic.oup.com/bib/article/24/1/bbac519/6918739#392958568)
     - Can go through TCGA data and classify which mutations are inhibiting vs activating since some would be better targets than others
         - If a mutation inhibits a gene it's probably not a good target since it's likely just trying to kill the gene.
 
