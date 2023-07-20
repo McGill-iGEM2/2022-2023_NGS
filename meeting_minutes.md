@@ -1,3 +1,14 @@
+## Thursday, July 20, 2023
+- Addressing background noise
+    - Control samples also indicate some % of KRAS mutation --> odd
+    - Possible reason: blood sample, tumour cells may be present
+    - To-Do:
+        - Test pipeline with other tumour-normal samples for different cancers and see if overlap is still present
+        - Otherwise, somehow filter out? Might be a quality thing
+    - Fusion events
+        - Data for transcriptomes pre-assembled --> refseq, download G scripts (?) and assemble for fasta files
+        - How to find? Align paired-end reads and see whether the read-ends match to difference chromosomes (OR if they are really far from one another, ~10^6 bp apart)
+
 ## Thursday, July 13, 2023
 gRNA
 - Should start looking at the TCGA datasets since they're highly processed, would be a better place to inform the guide designs
