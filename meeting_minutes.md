@@ -1,3 +1,15 @@
+## Friday, July 28, 2023
+- Background noise resolved
+    - From Jasmin: "The reason there always appears to be some mutated alleles in the control sample is simply because Mutect2 adds a pseudo-count of 1 read to each allele. For example, for the KRAS mutation in the chr12 vcf file on the GitHub, the healthy tissue alternative allele frequency is reported as 0.037 while the total reads supporting each allele are 0 and 25, which with the pseudo counts add up to 1 and 26 and 1/27=0.037."
+
+## Monday, July 25, 2023
+- More discussion on background noise
+- Fasterq-dump of cervical samples downloaded, some issues with identifying tumour vs normal samples
+    -  Eventually resolved through SRA run selector, tumour samples have the tag neoplasm
+-  Starting pipeline on:
+    - Normal --> ERR4833601
+    - Tumour --> ERR4833602
+
 ## Thursday, July 20, 2023
 - Addressing background noise
     - Control samples also indicate some % of KRAS mutation --> odd
