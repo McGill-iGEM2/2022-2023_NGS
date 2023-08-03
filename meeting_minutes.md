@@ -1,3 +1,26 @@
+## Monday, July 31, 2023
+Questions:
+- ANNOVAR is just annotation and filtering needs to be separate - what would you use to filter later?
+    - Recommend using GATK for filtering annotation
+- ANNOVAR requires preprocessing, have to change the input format
+- Contrarily, VEP takes VCF files directly and can do both annotation and filtering
+    - Would still only use VEP to annotate, then filter with GATK afterwards.
+    - VEP tells more about clinical information, like severity, but not things like allele freq, balance, depth etc. 
+- Looking for thresholds - how to understand what we find in literature?
+    - First, WES has much better coverage than WGS. So good we're using it (another justification for WES we can put on the wiki)
+    - Need to test the parameters for filters on our own data after finding them on papers. Wouldn't want to use somethting that works for other studies but cuts out all of our data.
+        - Can use papers' thresholds more as guiding principles. Can be a starting place
+        - Can also plot our own data and manually draw a cutoff line ourselves that would be a good threshold
+            - Good tool for plotting and extracting info from VCF Files: [BCF Tools](https://samtools.github.io/bcftools/bcftools.html)
+    - There are a ton of different quality control metrics, and some are very repetitive. How do we know which to use?
+        - What we see frequently in papers is likely important. [Miranda sent a trustworthy paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6919277/#SD2)
+        - Need to also consider the fact that the population-wide studies from these papers use the data for a different goal than our purposes. Metrics to remove technical artifacts are good universally but because of the difference in use, other metrics we may want to be more or less strict with.
+    - Some metrics aren't showing up in our VCF files generated from Mutect2, for example GQ
+    - **Instead of filtering we could sort instead, since we just need the best _x_ targets. Then eliminate any with egregious quality values**
+        - Need a way to prioritize the variables we're looking at. This will also be a problem even if we use cutoffs, since after that we'd have to eventually pick a target anyway
+            - (One thing to note is that if we find a bunch in a single protein/pathway/gene, it's more likely to be oncogenic instead of germline)
+
+
 ## Friday, July 28, 2023
 - Background noise resolved
     - From Jasmin: "The reason there always appears to be some mutated alleles in the control sample is simply because Mutect2 adds a pseudo-count of 1 read to each allele. For example, for the KRAS mutation in the chr12 vcf file on the GitHub, the healthy tissue alternative allele frequency is reported as 0.037 while the total reads supporting each allele are 0 and 25, which with the pseudo counts add up to 1 and 26 and 1/27=0.037."
