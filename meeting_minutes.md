@@ -1,3 +1,10 @@
+## Thursday, July 3, 2023
+- VEP
+    - Can we predict effects of de novo mutations?
+    - Can we predict nonsense-mediated decay?
+        - There may be a plugin for flagging [NMD escape ](https://www.ensembl.info/2022/01/28/cool-stuff-ensembl-vep-can-do-flagging-variants-predicted-to-allow-nmd-escape/)
+        - Plugins can be chosen during installation process
+
 ## Monday, July 31, 2023
 Questions:
 - ANNOVAR is just annotation and filtering needs to be separate - what would you use to filter later?
