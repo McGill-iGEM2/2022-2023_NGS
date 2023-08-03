@@ -4,6 +4,9 @@
     - Can we predict nonsense-mediated decay?
         - There may be a plugin for flagging [NMD escape ](https://www.ensembl.info/2022/01/28/cool-stuff-ensembl-vep-can-do-flagging-variants-predicted-to-allow-nmd-escape/)
         - Plugins can be chosen during installation process
+- gRNA pool
+    - Script developed to extract all gRNAs from HMG2 gene, GC content calculated
+    - Need Melting T, Gibbs (?), folding structure
 
 ## Monday, July 31, 2023
 Questions:
