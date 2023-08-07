@@ -1,4 +1,48 @@
-## Thursday, July 3, 2023
+## Monday, August 7, 2023
+- NGS
+    - How to better validate model performance? (TP, FP, FN, precision and sensitivity)
+    - FilterMutectCalls + FilterByBiasOrientation + Functotator + VEP?
+    - Quality metrics already included, don't need additional filtering -> stick with FilterMutectCalls
+    - Miranda
+        - Rather punish FP than FN --> being stringent in this
+    - Start with benchmark with known driver genes
+        - Won't give us p-value but will tell us which are likelier
+        - Will never know the FN but can at least confirm the TP
+        - No easy way to get p-value, don't know the null expectation
+            - No reads in the control? But can be cross-contamination
+        - Can use other reads as confirmation
+            - Read with LQ score and reads that overl
+    - Separate into chromosomes
+    - Look at aggreement between overlapping reads
+    -     Lok at BQ and preBQ --> SEE WHAT HAS BETTER AGREEMENT
+- VEP alone is probably fine
+    - Most robust and thorough for annotate
+    - Predicting functional effects of de novo effects (POLYPHEN does this, good for LOF, but not GOF)
+- gRNA
+    - Folding is funky
+        - Look at subsections
+            - mRNA aren't meant to fold in its entirely
+            - Maybe 50 bp at a time to see local structure
+                - Just look at energy, don't need to look at structure?
+    - Free energy -> high, likely to bind to itself
+- Benchmark for how to prioritize the mutations
+    - We don't know from the data what is a good candidate or not (cancerous vs non cancerous, or cancer specific)
+    - Other than it existing in population (as a good candidate)
+    - Idea is that if you find mutations in known driver genes, more likely to be real or interesting
+    - Weighing parameters should maximize this
+    - Other way is to use popuation variants to flag FP, but this doesn't include somatic mutations
+        - If assume they're rare..?
+        - Don't want too low, possibility that it's a germline mutation..?
+    - Selecting variants specific to cancer..?
+    - Summary
+        - List of known driver **genes** --> focus analysis on these regions
+            - Search entire sequence, but give right weight to read depth and fraction of reads that are mutated in the cancer
+        - Assume all germline mutations are FP?
+            - Some noise on FN, if control says0 reads supporting mutation, but
+        - Keep germline, but optimize coverage and depth..?
+        - Use for benchmarking first, then filter out after
+
+## Thursday, August 3, 2023
 - VEP
     - Can we predict effects of de novo mutations?
     - Can we predict nonsense-mediated decay?
