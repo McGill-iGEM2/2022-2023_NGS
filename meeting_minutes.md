@@ -1,3 +1,16 @@
+## Monday, August 21, 2023
+- VEP, have to access the ensembl genome assembly database for annotation information. Having issues with a perl, a couple things to try.
+- Secondary structure preventing binding?
+    - for gene itself, will have to be unfolded during translation and transcription so there will be opportunities there
+    - for gRNA, just one of many factors, important but have to be considered holistically
+      - there will be variation in the guides we use in the screening, can compare to predicted structurue of guides with similar position mutation independently of the mRNA
+- We may not have empirical data, so how do we weigh different factors against each other when choosing the best gRNA?
+    - Get a model of what's going on physically (if we aren't able to get actual results in time), estimate relationship between expression level, energy level, and secondary structure
+    - parameterize relationship between tunable expression level in yeast and killing - expression level vs efficacy should be linear relationship
+    - SS performance should be proportional (somehow) to the energy of stability of gRNA (make sure to include linker sequence) (quantified by minimum free energy), can extrapolate from the screen since we'll have three points being tested
+        - From there, can try to decouple the folding of the guides and and the guides themselves since they'll be targetting the same areas but with slightly different structures because of the different mismatches in the same positions
+            - Need to have a model to determine whether difference in performance is due to the difference in mismatch or SS. Should have enough data telling us how much of a difference each combination of mutation makes and can hopefully infer the impact of small SS differences from there.
+
 ## Monday, August 7, 2023
 - NGS
     - How to better validate model performance? (TP, FP, FN, precision and sensitivity)
