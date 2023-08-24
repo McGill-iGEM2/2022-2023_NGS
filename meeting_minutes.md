@@ -1,3 +1,13 @@
+## Thursday, August 24, 2023
+- Problem: can't target G12D mutation anymore because of wobble base pairing
+    - So for dry lab, this means that we have to consider another set of off target effects. Also have to filter out mutations from G to A
+- To find fusion events, BAM file should have two reads with same name (with paired ends) that should have vastly different coordinate mapping. Shouldn't be too difficult to write a script to identify these
+    - Look into settings (like seed length) in bwa to make sure it identifies these : could be currently throwing these out because only half the read matches, for example
+        - Ex. setting in Bowtie to give the two best alignments. Idea is that each would belong to the different parts that were fused. Once found, can discard reads not in proximity to the location to get the sequence and depth
+    - Here's an existing tool for it that uses BWA: [SOAPfuse: an algorithm for identifying fusion transcripts from paired-end RNA-Seq data](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-2-r12)
+    - Where to find the data to test this though? would be helpful to have WES data that we know has a fusion event to see if the script works
+        - Can probably look into papers that document the events. Pancreatic has NRG1 that has been discussed, there are a couple papers detailing that
+
 ## Monday, August 21, 2023
 - VEP, have to access the ensembl genome assembly database for annotation information. Having issues with a perl, a couple things to try.
 - Secondary structure preventing binding?
