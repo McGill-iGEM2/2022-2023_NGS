@@ -20,18 +20,18 @@ t_path=../data/tumour/
 ref=../data/reference/Homo_sapiens_assembly38.fasta
 tmp=~/scratch
 
-#echo -e "\nNo bqsr...\n"
+echo -e "\nNo bqsr...\n"
 
-#dir=raw
+dir=raw
 
-# ./clean.sh \
-#     -r $ref \
-#     -d $tmp \
-#     -f $dir \
-#     -n $n_path/n_aligned.sam \
-#     -t $t_path/t_aligned.sam
+./clean.sh \
+    -r $ref \
+    -d $tmp \
+    -f $dir \
+    -n $n_path/n_aligned.sam \
+    -t $t_path/t_aligned.sam
 
-# echo -e "\nDone!\n"
+echo -e "\nDone!\n"
 
 echo -e "\nBqsr...\n"
 
