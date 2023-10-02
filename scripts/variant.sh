@@ -44,7 +44,7 @@ done
 
 # Variant calling
 gatk Mutect2 \
-    --java-options "-Xmx8G" \
+    --java-options "-Xmx16G" \
     -R $ref \
     -I $normal \
     -I $tumour \
