@@ -62,9 +62,9 @@ while getopts "n:t:d:r:cf:" option; do
                 -I $n_path/n_csorted.bam \
                 -R $ref \
                 -O $n_path/n_bqsr.table \
-                --known-sites ../../data/Homo_sapiens_assembly38.dbsnp138.vcf \
-                --known-sites ../../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
-                --known-sites ../../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+                --known-sites ../data/Homo_sapiens_assembly38.dbsnp138.vcf \
+                --known-sites ../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
+                --known-sites ../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
             echo -e "\nSecond pass...\n"
 
@@ -78,9 +78,9 @@ while getopts "n:t:d:r:cf:" option; do
                 -I $n_path/n_bqsr.bam \
                 -R $ref \
                 -O $n_path/n_post_bqsr.table \
-                --known-sites ../../data/Homo_sapiens_assembly38.dbsnp138.vcf \
-                --known-sites ../../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
-                --known-sites ../../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+                --known-sites ../data/Homo_sapiens_assembly38.dbsnp138.vcf \
+                --known-sites ../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
+                --known-sites ../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
             echo -e "\nGenerating before/after plots...\n"
 
@@ -151,9 +151,9 @@ while getopts "n:t:d:r:cf:" option; do
                 -I $t_path/t_csorted.bam \
                 -R $ref \
                 -O $t_path/t_bqsr.table \
-                --known-sites ../../data/Homo_sapiens_assembly38.dbsnp138.vcf \
-                --known-sites ../../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
-                --known-sites ../../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+                --known-sites ../data/Homo_sapiens_assembly38.dbsnp138.vcf \
+                --known-sites ../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
+                --known-sites ../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
             echo -e "\nSecond pass...\n"
 
@@ -167,9 +167,9 @@ while getopts "n:t:d:r:cf:" option; do
                 -I $t_path/t_bqsr.bam \
                 -R $ref \
                 -O $t_path/t_post_bqsr.table \
-                --known-sites ../../data/Homo_sapiens_assembly38.dbsnp138.vcf \
-                --known-sites ../../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
-                --known-sites ../../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+                --known-sites ../data/Homo_sapiens_assembly38.dbsnp138.vcf \
+                --known-sites ../data/Homo_sapiens_assembly38.known_indels.vcf.gz \
+                --known-sites ../data/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
             echo -e "\nGenerating before/after plots...\n"
 
@@ -191,3 +191,15 @@ while getopts "n:t:d:r:cf:" option; do
 done
 
 echo "Done!"
+
+# oct 3
+# optical duplicates?
+# should we remove secondary, supplementary, or unmapped reads
+# - vague understanding
+#     - primary read can map to specific location in genome
+#     - if repetitive, read may map at multiple locations
+#         - don't know where it originated
+#         - he doesn't know distinction
+#         - unmapped - nothing in genome
+#     - should we filter these out?
+#         - don't know what reads are used for but would trust the pipeline

@@ -68,4 +68,4 @@ Once the miniconda environment is installed, activate the conda environment and 
 
 ## Cloud Cluster
 
-It is recommended to run the pipeline on the cloud, where memory and compute resources are more extensive than local machines. The scripts located in the `src` directory are executed through `SLURM`, where the configurations can be adjusted in the header lines of each file.
+It is recommended to run the pipeline on the cloud, where memory and compute resources are more extensive than local machines. The scripts located in the `src` directory are executed through the `SLURM` workload manager, where the configurations can be adjusted in the header lines of each file.
