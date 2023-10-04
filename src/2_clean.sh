@@ -22,17 +22,20 @@ t_path=../data/$1/tumour/
 ref=../data/reference/Homo_sapiens_assembly38.fasta
 tmp=~/scratch
 
-echo -e "\nNo bqsr...\n"
+if [ $1 == 'PAM43_PRIM' ]
+then
+    echo -e "\nNo bqsr...\n"
 
-dir=raw
+    dir=raw
 
-./clean.sh \
-    -r $ref \
-    -d $tmp \
-    -f $dir \
-    -t $t_path/t_aligned.sam
+    ./clean.sh \
+        -r $ref \
+        -d $tmp \
+        -f $dir \
+        -t $t_path/t_aligned.sam
 
-echo -e "\nDone!\n"
+    echo -e "\nDone!\n"
+fi
 
 echo -e "\nBqsr...\n"
 
