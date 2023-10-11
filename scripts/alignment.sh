@@ -2,13 +2,14 @@
 
 # Function for usage
 usage() {
-    echo -e "Usage: alignment.sh <-r ref> <-n left [right]> [-p] [-h]\n"
+    echo -e "Usage: alignment.sh <-r path_to_ref> <-n path_to_reads [path_to_paired_reads]> [-p] [-h]\n"
             echo -e "Aligns sequencing data to the reference genome using BWA-MEM. The reference is indexed if not already.\n"
             echo -e "Options:"    
-            echo -e "\t-r ref\t\tReference genome"
-            echo -e "\t-n left right\tSequencing data. If paired-end reads contained in two files, indicate the pair file with RIGHT"
-            echo -e "\t-p\t\tUse this flag to indicate that READS contains paired-end reads"
-            echo -e "\t-h\t\tHelp"
+            echo -e "\t-r path_to_ref\t\t\t\tReference genome"
+            echo -e "\t-n path_to_reads [path_to_paired_reads]\tSequencing data. If paired-end reads contained in two files, indicate the pair file with RIGHT"
+            echo -e "\t-s sample\t\t\t\tSample name. Default is the name of the file containing the reads. (Optional)"
+            echo -e "\t-p\t\t\t\t\tUse this flag to indicate that READS contains paired-end reads. Default is single-end reads. (Optional)"
+            echo -e "\t-h\t\t\t\t\tHelp"
 }
 
 # Function for getting extra arguments
@@ -54,9 +55,7 @@ elif [ -z $ref ] || [ -z $left ]; then
     usage
     exit 1
 elif [ -z $sample ]; then
-    echo -e "Error: Sample name not specified\n"
-    usage
-    exit 1
+    sample=$(basename $left)
 fi
 
 # Extracting file path
