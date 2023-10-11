@@ -18,21 +18,26 @@ This pipeline is designed to take in whole-exome sequencing data of a patient's 
 │   │   ├── bqsr
 │   │   └── raw
 │   ├── reference
-│   ├── tumour
+│   ├── tumor_sample_1
+│   │   ├── bqsr
+│   │   └── raw
+│   ├── tumor_sample_2
 │   │   ├── bqsr
 │   │   └── raw
 │   └── variant
 │   │   ├── bqsr
-│   │   └── raw
+│   │   └── pcgr
 ├── scripts
 │   ├── alignment.sh
+│   ├── annotate.sh
 │   ├── clean.sh
 │   ├── variant.sh
 └── src
     ├── 1_align.sh
     ├── 2_clean.sh
     ├── 3_variant.sh
-    └── 4_annotate.sh
+    ├── 4_annotate.sh
+    └── batch.sh
   ```
 
 ## Local Installation
@@ -43,29 +48,14 @@ Many of the software used are available through `bioconda`, a distribution of bi
 - bwa https://anaconda.org/bioconda/bwa
 - samtools https://anaconda.org/bioconda/samtools
 - gatk https://anaconda.org/bioconda/gatk4
-
-### 0) Miniconda
-
-Once the miniconda environment is installed, activate the conda environment and install the remaining software through the `bioconda` distribution channel.
-
-    conda activate # activate the base environment
-
-### 1) SRA Toolkit
-
-    conda install -c bioconda sra-tools
-
-### 2) BWA-MEM
-  
-    conda install -c bioconda bwa
-
-### 3) Samtools
-
-    conda install -c bioconda samtools
-
-### 4) The Genome Analysis Toolkit (GATK)
-
-    conda install -c bioconda gatk4
+- pcgr https://anaconda.org/pcgr/pcgr 
 
 ## Cloud Cluster
 
-It is recommended to run the pipeline on the cloud, where memory and compute resources are more extensive than local machines. The scripts located in the `src` directory are executed through the `SLURM` workload manager, where the configurations can be adjusted in the header lines of each file.
+It is recommended to run the pipeline on the cloud, where memory and compute resources are more extensive than local machines. The scripts located in the `src` directory are executed through the `SLURM` workload manager, where the configurations can be adjusted in the header lines of each file. We have also included a `batch.sh` script that can be used to run the pipeline on multiple samples at once.
+
+Each script will load the necessary modules required to run. For annotation, we used PCGR, which is available through the Alliance's cvmfs distribution. This can be quickly setup by running the `setup.sh` script in the main directory, which will add the necessary lines to your `~/.bashrc` file. This will allow access to the MUGQIC software repository, which contains a suite of bioinformatics tools including PCGR. Running this will also install the data bundle in the `PCGR/`directory that is referenced by PCGR during annotation. By default, it will install the bundle for the GRCh38 build, but this can be changed by editing the `setup.sh` file.
+
+## Usage
+- using the batch script
+- more detailed explanation on each of the src files here (link)
