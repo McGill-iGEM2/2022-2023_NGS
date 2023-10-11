@@ -2,7 +2,7 @@
 
 # Function for usage
 usage() {
-    echo -e "Usage: alignment.sh <-r path_to_ref> <-n path_to_reads [path_to_paired_reads]> [-p] [-h]\n"
+    echo -e "Usage: alignment.sh <-r path_to_ref> <-n path_to_reads [path_to_paired_reads]> [-s sample] [-p] [-h]\n"
             echo -e "Aligns sequencing data to the reference genome using BWA-MEM. The reference is indexed if not already.\n"
             echo -e "Options:"    
             echo -e "\t-r path_to_ref\t\t\t\tReference genome"
@@ -50,16 +50,23 @@ if [ $# -eq 0 ]; then
     echo -e "Error: No arguments given\n"
     usage
     exit 1
-elif [ -z $ref ] || [ -z $left ]; then
+elif [ -z $ref ]; then
     echo -e "Error: Reference genome or sample not specified\n"
     usage
     exit 1
-elif [ -z $sample ]; then
-    sample=$(basename $left)
+elif [ -z $left ]; then
+    echo -e "Error: Path to reads not specified\n"
+    usage
+    exit 1
 fi
 
 # Extracting file path
 path=$(dirname $left)
+
+# Extracting sample name if not specified
+if [ -z $sample ]; then
+    sample=$(basename $left)
+fi
 
 # Indexing reference genome if not already
 if [ ! -f $ref.bwt ]; then
