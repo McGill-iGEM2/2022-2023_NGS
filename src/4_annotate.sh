@@ -1,23 +1,17 @@
 #!/bin/bash
 #SBATCH --mem-per-cpu=12G
 #SBATCH --ntasks-per-node=1
-#SBATCH --time=20:0:0
+#SBATCH --time=0:30:0
 #SBATCH --mail-user=jennifer.tramsu@mail.mcgill.ca
 #SBATCH --mail-type=ALL
-#SBATCH --output=annotate.out
+
+module add mugqic/pcgr/1.2.0
 
 echo "Starting run at: `date`"
 
-cd ../data/variant/bqsr
-ls -l
+cd ../scripts
+folder=$1
+name=$2
+./annotate.sh $folder $name
 
-singularity exec ~/vep.sif vep \
-	--dir $HOME/vep_data \
-	--dir_cache $HOME/vep_data \
-	-i /home/jts/jts/NGS/data/variant/raw/variant_call.vcf \
-	--cache \
-	--offline \
-	--force_overwrite \
-	--everything \
-	--tab \
-	-o $HOME/jts/NGS/data/variant/raw/variant_output.txt
+echo "Job finished with exit code $? at: `date`"
