@@ -9,9 +9,6 @@ function getopts-extra () {
     done
 }
 
-# excluding based on LQ scores - can also do after alignment
-# q scores for alignment as well - filter out LQ alignments, FP later on
-
 PAIRED=false
 
 while getopts "r:n:t:p" option; do

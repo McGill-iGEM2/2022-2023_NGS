@@ -44,13 +44,17 @@ done
 
 # Variant calling
 gatk Mutect2 \
-    --java-options "-Xmx16G" \
+    --java-options "-Xmx32G" \
     -R $ref \
     -I $normal \
     -I $tumour \
     -normal normal \
+    --germline-resource $germline \
+    --panel-of-normals $panel \
     -O $out.vcf \
     --tmp-dir $tmp
+
+echo -e "\nFiltering vcf...\n"
 
 gatk FilterMutectCalls \
     -R $ref \
