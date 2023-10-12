@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --mem-per-cpu=12G
 #SBATCH --time=60:0:0
-#SBATCH --mail-type=ALL
 
 module load bwa/0.7.17
 module load gatk/4.2.5.0
@@ -11,9 +10,17 @@ echo "Starting run at: `date`"
 
 cd ../scripts
 
+# Static
+ref=#path_to_ref
+
+# Reading from command line
+left=$1
+right=$2         # path_to_input
+sample=$3     # sample_name
+
 ./alignment.sh \
-    -r # path_to_ref \
-    -n # path_1 path_2 \
-    -s # sample_name
+    -r $ref \
+    -n $left $right \
+    -s $sample
 
 echo "Job finished with exit code $? at: `date`"
