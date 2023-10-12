@@ -15,8 +15,8 @@ ref=#path_to_ref
 
 # Reading from command line
 left=$1
-right=$2         # path_to_input
-sample=$3     # sample_name
+right=$2        # path_to_input
+sample=$3       # sample_name
 
 ./alignment.sh \
     -r $ref \

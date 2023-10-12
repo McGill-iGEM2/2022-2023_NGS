@@ -77,6 +77,17 @@ If running the pipeline locally, the scripts should be run in this order. A more
 
 If running the pipeline on the cloud, the scripts can be called using the `src` directory, which are numbered in order of execution.
 
+- `1_align.sh`
+- `2_clean.sh`
+- `3_variant.sh`
+- `4_annotate.sh`
+
+Inside each script is a header section that informs SLURM of the resources required to run the script. This includes the number of CPUs, memory, and time required to run the script. Some default values are provided, but these can be adjusted to suit your needs. The scripts can be run by calling `sbatch` on the script, e.g. `sbatch 1_align.sh` followed by the necessary arguments.
+
+Further down are is the command line call to the corresponding script in the `scripts` directory. These can be adjusted as needed (see [Usage](2.-Usage.md) for more details on optional flags).
+
+To run multiple samples at once, the `batch.sh` script can be used. This script will call the numbered scripts in the `src` directory, and can be modified to run on any number of samples. The content in this script can be modified as needed, but we've provided an example on how to get started once you've downloaded all the necessary data.
+
 ## Next Steps
 
 There is still much to be done in terms of improving the pipeline. The following are some of the next steps we hope to take in the future:
